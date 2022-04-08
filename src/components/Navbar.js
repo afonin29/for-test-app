@@ -21,8 +21,13 @@ const Navbar = () => {
         <AppBar position="static">
             <Toolbar variant="dense" >
                 <Grid container justifyContent={"flex-end"}>
-                    {user ? 
-                        <Button variant="outlined" onClick={signOutUser} style={{backgroundColor: "white"}}>Sign out</Button>
+                    {user ?   
+                        <Grid container justifyContent={"flex-end"}>
+                            <Link href='./posts'>
+                                <Button variant="outlined" style={{backgroundColor: "white"}} sx={{mr : 1}}>Posts</Button>
+                            </Link>
+                            <Button variant="outlined" onClick={signOutUser} style={{backgroundColor: "white"}}>Sign out</Button>
+                        </Grid>
                         :
                         <Link href="./login">
                             <Button variant="outlined" style={{backgroundColor: "white"}}>Login</Button>

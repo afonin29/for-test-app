@@ -1,8 +1,9 @@
-import { LOGIN_PATH, REGISTER_PATH } from "./utils/constants"
+import { LOGIN_PATH, POSTS_PATH, REGISTER_PATH } from "./utils/constants"
 import { PROFILE_PATH } from "./utils/constants"
 import Login from "./components/Login"
 import Profile from "./components/Profile"
 import Register from "./components/Register"
+import Posts from "./components/Posts"
 
 export const publicRoutes = [
     {
@@ -19,6 +20,10 @@ export const privateRoutes = [
     {
         path: PROFILE_PATH,
         Component: Profile
+    },
+    {
+        path: POSTS_PATH,
+        Component: Posts
     }
     
 ]

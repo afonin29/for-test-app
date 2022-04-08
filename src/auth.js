@@ -25,7 +25,6 @@ export const signInWithEmailAndPass = async (email, password) => {
 }
 
 export function getProfilePicUrl() {
-    console.log(getAuth().currentUser)
     return getAuth().currentUser.photoURL;    
 }
 
