@@ -13,7 +13,7 @@ const AppRouter = () => {
             {privateRoutes.map(({path, Component})=>
             <Route key={path} path={path} component={Component} exact={true} />
             )}
-            {/* <Redirect to={POSTS_PATH}/> */}
+            <Redirect to={POSTS_PATH}/>
         </Switch>
     )
     :

@@ -6,6 +6,8 @@ import { getAuth } from 'firebase/auth';
 import { Link, FormControl, Button, TextField, Grid } from '@mui/material';
 import { useState } from 'react';
 import { signInWithGoogle, signInWithEmailAndPass } from '../auth'
+import { POSTS_PATH } from '../utils/constants';
+import { useHistory } from 'react-router-dom'
 
 const Login = () => {
 
@@ -14,8 +16,9 @@ const Login = () => {
     const [password, setPassword] = useState('');
 
     function signIn() {
-        signInWithEmailAndPass(email, password)
+        signInWithEmailAndPass(email, password);
     }
+
     return (
         <Grid container justifyContent="center" alignItems="center" p={2} spacing={2} sx={{ flexDirection: 'column' }}>
             <FormControl>
