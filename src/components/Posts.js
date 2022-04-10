@@ -1,6 +1,6 @@
 import React, { createElement, useEffect, useState } from 'react';
 import { Container, Grid, TextField, Button, Avatar } from '@mui/material';
-import { saveTask, loadTasks } from '../posts';
+import { saveTask, loadTasks, deleteFromDb } from '../posts';
 import { query, collection, getDocs, limit, orderBy, getFirestore, onSnapshot } from 'firebase/firestore';
 import '../App.css';
 
@@ -15,35 +15,12 @@ const Posts = () => {
         saveTask(task, date);
         setTask("");
         setDate("");
+        console.log(date)
     }
 
-    
-    // async function loadTasks() {
-    //     const q = query(collection(getFirestore(), 'tasks'), orderBy('timestamp', 'desc'), limit(12));
-    //     var array = [];
-    //     onSnapshot(q, function(snap) {
-    //         snap.docChanges().forEach(function(change) {
-    //             var data = change.doc.data()
-    //             createTask(data.text, data.deadline)
-    //         })
-    //     })
-    // }
-
-    // function createTask(task, deadline) {
-    //     let root = document.getElementById("chat-area")
-    //     let container = document.createElement("Grid")
-    //     container.className = "task-container"
-
-    //     let newTask = document.createElement("div");
-    //     newTask.innerHTML = task;
-    //     container.appendChild(newTask);
-
-    //     let newDeadline = document.createElement("div");
-    //     newDeadline.innerHTML = "Deadline: " + deadline;
-    //     container.appendChild(newDeadline);
-
-    //     root.appendChild(container)
-    // }
+    function deleteTask() {
+        alert("Hello")
+    }
 
     return (
         <Container>
@@ -52,8 +29,8 @@ const Posts = () => {
                     
                 </div>
                 <Grid container direction={"row"} justifyContent={"space-around"} >
-                    <TextField label="What" variant={"outlined"} style={{ width: "30%" }} onChange={(e) => setTask(e.target.value)}></TextField>
-                    <TextField label="When" variant={"outlined"} style={{ width: "30%" }} onChange={(e) => setDate(e.target.value)}></TextField>
+                    <TextField label="What" variant={"outlined"} style={{ width: "30%" }} value={task} onChange={(e) => setTask(e.target.value)}></TextField>
+                    <TextField label="When" variant={"outlined"} style={{ width: "30%" }} value={date} onChange={(e) => setDate(e.target.value)}></TextField>
                     <Button variant={"contained"} style={{ color: "white", height: "70%", padding: "0 3%" }} onClick={sendTask}>Send</Button>
                 </Grid>
             </Grid>

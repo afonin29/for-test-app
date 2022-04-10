@@ -26,7 +26,9 @@ const Navbar = () => {
                             <Link href='./posts'>
                                 <Button variant="outlined" style={{backgroundColor: "white"}} sx={{mr : 1}}>Posts</Button>
                             </Link>
-                            <Button variant="outlined" onClick={signOutUser} style={{backgroundColor: "white"}}>Sign out</Button>
+                            <Link href='./login'>
+                                <Button variant="outlined" onClick={signOutUser} style={{backgroundColor: "white"}}>Sign out</Button>
+                            </Link>
                         </Grid>
                         :
                         <Link href="./login">
